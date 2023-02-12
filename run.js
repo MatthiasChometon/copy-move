@@ -16,18 +16,18 @@ const intervalId = setInterval(() => {
   }
 
   const { x, y, key, isUp } = activities[index]
-  robot.moveMouse(x, y)
   keyAndClick(key, isUp)
+  robot.moveMouse(x, y)
   index++
 }, 10)
 
 const keyAndClick = (key, isUp) => {
+  if (key === undefined) return
   const hasClicked = click(key, isUp)
   if (hasClicked === null) tap(key, isUp)
 }
 
 const click = (key, isUp) => {
-  const upOrDown = isUp ? 'up' : 'down'
   let keyToTrigger = null
 
   switch (key) {
@@ -41,7 +41,8 @@ const click = (key, isUp) => {
       return null
   }
 
-  robot.mouseToggle(upOrDown, keyToTrigger)
+  if (!isUp) return
+  robot.mouseClick(keyToTrigger)
 }
 
 const tap = (key, isUp) => {
@@ -58,6 +59,7 @@ const tap = (key, isUp) => {
 
 keylogger.start((keyPressed) => {
   if (keyPressed !== 'Escape') return
+  robot.mouseToggle('up', 'left')
   keylogger.stop()
   process.exit()
 })
