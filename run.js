@@ -18,7 +18,6 @@ const intervalId = setInterval(() => {
   const { x, y, key } = activities[index]
   robot.moveMouse(x, y)
   const hasClicked = click(key)
-  console.log({ key })
   if (hasClicked === null) tap(key)
   index++
 }, 10)
