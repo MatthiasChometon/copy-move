@@ -2,9 +2,9 @@ const keylogger = require("keylogger.js")
 const robot = require("robotjs")
 const fs = require('fs')
 
-const fileName = 'data.json'
+const fileName = 'activities.json'
 const activities = []
-let currentKeyboardActivity = {}
+let key = null
 
 // Récupération de la position initiale du curseur
 let x = robot.getMousePos().x
@@ -18,24 +18,19 @@ setInterval(() => {
     y = mouse.y
     console.log(`Position du curseur : x = ${x} y = ${y}`)
   }
-  activities.push({ ...currentKeyboardActivity, x, y })
-  currentKeyboardActivity = {}
-}, 50)
+  activities.push({ key, x, y })
+  key = null
+}, 10)
 
-keylogger.start((key, isKeyUp, keyCode) => {
-  if (key === '*') {
-    fs.stat(fileName, (err, stat) => {
-      fs.writeFile(fileName, JSON.stringify(activities), (err) => {
-        if (err) throw err
-        console.log(`Le fichier "${fileName}" a été remplis avec succès.`)
-        process.exit()
-      })
+keylogger.start((keyPressed, isUp) => {
+  if (isUp) return
+  if (keyPressed === 'Escape') {
+    fs.writeFile(fileName, JSON.stringify(activities), (err) => {
+      console.log(`Le fichier "${fileName}" a été remplis avec succès.`)
+      keylogger.stop()
+      process.exit()
     })
   }
-  currentKeyboardActivity = { key, isKeyUp }
-  console.log("keyboard event", key, isKeyUp)
-})
-
-keylogger.click((click) => {
-  console.log(click)
+  key = keyPressed
+  console.log(`Valeur du clavier et souris : key = ${key}`)
 })

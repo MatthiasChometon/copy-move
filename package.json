@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "save": "node save",
+    "record": "node save",
     "start": "node run"
   },
   "keywords": [],
@@ -13,6 +13,6 @@
   "dependencies": {
     "keylogger.js": "github:MatthiasChometon/keylogger.js",
     "node-gyp": "^9.3.1",
-    "robotjs": "^0.6.0"
+    "robotjs": "github:octalmage/robotjs#master"
   }
 }
