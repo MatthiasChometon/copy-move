@@ -3,12 +3,12 @@ lockfileVersion: 5.4
 specifiers:
   keylogger.js: github:MatthiasChometon/keylogger.js
   node-gyp: ^9.3.1
-  robotjs: github:octalmage/robotjs#master
+  robotjs: github:MatthiasChometon/robotjs
 
 dependencies:
   keylogger.js: github.com/MatthiasChometon/keylogger.js/af91836f6cb6dc6f3854e0e8adcd53e908c16965
   node-gyp: 9.3.1
-  robotjs: github.com/octalmage/robotjs/8ae87a91f06f49559f0db387bc2bd1ea01419880
+  robotjs: github.com/MatthiasChometon/robotjs/91821c9235d76670f1173aa353c5d135d3ccd6b0
 
 packages:
 
@@ -1008,8 +1008,8 @@ packages:
       node-addon-api: 3.2.1
     dev: false
 
-  github.com/octalmage/robotjs/8ae87a91f06f49559f0db387bc2bd1ea01419880:
-    resolution: {tarball: https://codeload.github.com/octalmage/robotjs/tar.gz/8ae87a91f06f49559f0db387bc2bd1ea01419880}
+  github.com/MatthiasChometon/robotjs/91821c9235d76670f1173aa353c5d135d3ccd6b0:
+    resolution: {tarball: https://codeload.github.com/MatthiasChometon/robotjs/tar.gz/91821c9235d76670f1173aa353c5d135d3ccd6b0}
     name: robotjs
     version: 0.6.0
     requiresBuild: true
