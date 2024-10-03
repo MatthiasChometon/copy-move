@@ -6,19 +6,19 @@
 ## 🚀 Quick Start
 
 ### 1. Install dependencies:
-\`\`\`bash
+```bash
 pnpm install
-\`\`\`
+```
 
 ### 2. Record keystrokes:
-\`\`\`bash
+```bash
 pnpm record
-\`\`\`
+```
 
 ### 3. Replay keystrokes:
-\`\`\`bash
+```bash
 pnpm start
-\`\`\`
+```
 
 ## 🛠️ Tech Stack
 
